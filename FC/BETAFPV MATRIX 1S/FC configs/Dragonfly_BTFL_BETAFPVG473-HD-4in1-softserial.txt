@@ -18,12 +18,18 @@ signature
 
 # name: Dragonfly
 
+# resources
+resource LED_STRIP 1 NONE
+resource SERIAL_TX 1 NONE
+resource SERIAL_RX 1 NONE
+resource SOFTSERIAL_TX 1 A09
+resource SOFTSERIAL_RX 1 B02
+
 # feature
 feature -AIRMODE
 feature SOFTSERIAL
 feature GPS
 feature TELEMETRY
-feature 3D
 feature OSD
 
 # serial
@@ -41,11 +47,16 @@ mode_color 6 1 6
 # aux
 aux 0 0 1 1200 2100 0 0
 aux 1 1 2 900 1200 1 0
-aux 2 15 6 1800 2100 0 0
-aux 3 28 2 900 1800 0 0
-aux 4 29 3 900 1200 0 0
-aux 5 35 4 1800 2100 1 0
-aux 6 39 8 1800 2100 1 0
+aux 2 3 4 900 1200 1 0
+aux 3 3 0 1800 2100 1 0
+aux 4 27 4 1800 2100 1 0
+aux 5 27 0 900 1200 1 0
+aux 6 11 4 900 1200 1 0
+aux 7 11 0 1800 2100 1 0
+aux 8 28 2 900 1800 0 0
+aux 9 35 4 1800 2100 1 0
+aux 10 35 0 1800 2100 1 0
+aux 11 39 8 1800 2100 1 0
 
 # vtxtable
 vtxtable bands 5
@@ -67,6 +78,8 @@ set blackbox_sample_rate = 1/2
 set motor_output_reordering = 3,1,2,0,4,5,6,7
 set failsafe_delay = 10
 set failsafe_throttle = 1250
+set failsafe_switch_mode = STAGE2
+set failsafe_procedure = GPS-RESCUE
 set align_board_roll = 180
 set align_board_yaw = 90
 set bat_capacity = 2500
@@ -77,9 +90,10 @@ set 3d_deadband_low = 1400
 set 3d_deadband_high = 1600
 set 3d_neutral = 1500
 set small_angle = 180
-set gps_provider = NMEA
+set gps_auto_config = OFF
 set gps_ublox_use_galileo = ON
-set pid_process_denom = 2
+set gps_rescue_allow_arming_without_fix = ON
+set pid_process_denom = 4
 set ledstrip_rainbow_freq = 102
 set osd_warn_bitmask = 270333
 set osd_cap_alarm = 400
@@ -124,6 +138,7 @@ set displayport_max7456_blk = 2
 set displayport_max7456_wht = 0
 set craft_name = Dragonfly
 set pilot_name = Bart SQ5SAZ
+set ap_hover_throttle = 1500
 
 profile 0
 
