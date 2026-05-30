@@ -19,11 +19,8 @@ signature
 # name: Dragonfly
 
 # resources
-resource LED_STRIP 1 NONE
-resource SERIAL_TX 1 NONE
-resource SERIAL_RX 1 NONE
-resource SOFTSERIAL_TX 1 A09
-resource SOFTSERIAL_RX 1 B02
+resource SERIAL_RX 1 B07
+resource I2C_SDA 1 NONE
 
 # feature
 feature -AIRMODE
@@ -33,8 +30,8 @@ feature TELEMETRY
 feature OSD
 
 # serial
+serial UART1 2 115200 57600 0 115200
 serial UART2 131073 115200 115200 0 115200
-serial SOFT1 2 115200 19200 0 19200
 
 # led
 led 0 7,15::AB:0
@@ -90,7 +87,6 @@ set 3d_deadband_low = 1400
 set 3d_deadband_high = 1600
 set 3d_neutral = 1500
 set small_angle = 180
-set gps_auto_config = OFF
 set gps_ublox_use_galileo = ON
 set gps_rescue_allow_arming_without_fix = ON
 set pid_process_denom = 4

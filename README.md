@@ -8,7 +8,7 @@ GNSS: FlyFishRC M10 Mini
 PETG
 
 # electronics
-use LED_STRIP as RX 1 for GNSS
+use MCU pin 45(B07) as Rx for GNSS
 
 # firmware
 If you are building remotely:
